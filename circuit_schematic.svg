@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700"
+     font-family="Arial, sans-serif" font-size="11">
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#fff" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="500" y="22" text-anchor="middle" font-size="14" font-weight="bold">ESP32-S3 · MPU-6050 · MyoWare 2.0 — Wiring Schematic</text>
+  <line x1="20" y1="28" x2="980" y2="28" stroke="#333" stroke-width="1"/>
+
+  <!-- ══════════════════════════════════════════════
+       POWER RAILS
+  ══════════════════════════════════════════════ -->
+  <!-- 3.3V rail (red, horizontal top) -->
+  <line x1="60" y1="55" x2="940" y2="55" stroke="#c00" stroke-width="2.5"/>
+  <text x="30" y="59" fill="#c00" font-weight="bold" font-size="11">3V3</text>
+  <!-- GND rail (black, horizontal bottom) -->
+  <line x1="60" y1="660" x2="940" y2="660" stroke="#222" stroke-width="2.5"/>
+  <text x="30" y="664" fill="#222" font-weight="bold" font-size="11">GND</text>
+
+  <!-- ══════════════════════════════════════════════
+       ESP32-S3  (left column)
+  ══════════════════════════════════════════════ -->
+  <rect x="60" y="80" width="160" height="400" rx="6" fill="#fffde7" stroke="#333" stroke-width="2"/>
+  <text x="140" y="100" text-anchor="middle" font-weight="bold" font-size="13">ESP32-S3</text>
+  <text x="140" y="114" text-anchor="middle" font-size="9" fill="#555">WROOM-1</text>
+
+  <!-- ESP right-side pins (signals going right) -->
+  <!-- 3V3 out -->
+  <line x1="220" y1="145" x2="260" y2="145" stroke="#c00" stroke-width="2"/>
+  <text x="165" y="148" font-size="10">3V3</text>
+  <!-- GND -->
+  <line x1="220" y1="175" x2="260" y2="175" stroke="#222" stroke-width="2"/>
+  <text x="165" y="178" font-size="10">GND</text>
+  <!-- GPIO8 SDA -->
+  <line x1="220" y1="220" x2="260" y2="220" stroke="#2a7" stroke-width="2"/>
+  <text x="165" y="223" font-size="10">GPIO 8</text>
+  <!-- GPIO9 SCL -->
+  <line x1="220" y1="255" x2="260" y2="255" stroke="#36f" stroke-width="2"/>
+  <text x="165" y="258" font-size="10">GPIO 9</text>
+  <!-- GPIO10 LED -->
+  <line x1="220" y1="310" x2="260" y2="310" stroke="#e60" stroke-width="2"/>
+  <text x="165" y="313" font-size="10">GPIO 10</text>
+  <!-- GPIO4 ENV -->
+  <line x1="220" y1="380" x2="260" y2="380" stroke="#cc0" stroke-width="2"/>
+  <text x="165" y="383" font-size="10">GPIO 4</text>
+  <!-- GPIO5 RAW -->
+  <line x1="220" y1="415" x2="260" y2="415" stroke="#aaa" stroke-width="2"/>
+  <text x="165" y="418" font-size="10">GPIO 5</text>
+
+  <!-- ESP left-side: 3V3 and GND rails -->
+  <line x1="60" y1="145" x2="40" y2="145" stroke="#c00" stroke-width="2"/>
+  <line x1="40" y1="55"  x2="40" y2="145" stroke="#c00" stroke-width="2"/>
+  <line x1="60" y1="175" x2="38" y2="175" stroke="#222" stroke-width="2"/>
+  <line x1="38" y1="175" x2="38" y2="660" stroke="#222" stroke-width="2"/>
+
+  <!-- USB label (power in) -->
+  <rect x="62" y="455" width="100" height="28" rx="4" fill="#ddd" stroke="#888" stroke-width="1.5"/>
+  <text x="112" y="466" text-anchor="middle" font-size="9" font-weight="bold">USB-C</text>
+  <text x="112" y="478" text-anchor="middle" font-size="8" fill="#555">power + serial</text>
+
+  <!-- ══════════════════════════════════════════════
+       MPU-6050  (top right)
+  ══════════════════════════════════════════════ -->
+  <rect x="560" y="80" width="150" height="220" rx="6" fill="#e8f5e9" stroke="#333" stroke-width="2"/>
+  <text x="635" y="100" text-anchor="middle" font-weight="bold" font-size="13">MPU-6050</text>
+  <text x="635" y="114" text-anchor="middle" font-size="9" fill="#555">IMU  (I²C addr 0x68)</text>
+
+  <!-- MPU left pins -->
+  <line x1="560" y1="145" x2="520" y2="145" stroke="#c00" stroke-width="2"/>
+  <text x="562" y="142" font-size="10">VCC</text>
+  <line x1="560" y1="175" x2="520" y2="175" stroke="#222" stroke-width="2"/>
+  <text x="562" y="172" font-size="10">GND</text>
+  <line x1="560" y1="210" x2="520" y2="210" stroke="#2a7" stroke-width="2"/>
+  <text x="562" y="207" font-size="10">SDA</text>
+  <line x1="560" y1="240" x2="520" y2="240" stroke="#36f" stroke-width="2"/>
+  <text x="562" y="237" font-size="10">SCL</text>
+  <!-- AD0 to GND -->
+  <line x1="560" y1="270" x2="520" y2="270" stroke="#222" stroke-width="2"/>
+  <text x="562" y="267" font-size="10">AD0 → GND</text>
+
+  <!-- MPU VCC → 3V3 rail -->
+  <line x1="520" y1="145" x2="510" y2="145" stroke="#c00" stroke-width="2"/>
+  <line x1="510" y1="55"  x2="510" y2="145" stroke="#c00" stroke-width="2"/>
+  <!-- MPU GND → GND rail -->
+  <line x1="520" y1="175" x2="505" y2="175" stroke="#222" stroke-width="2"/>
+  <line x1="505" y1="175" x2="505" y2="660" stroke="#222" stroke-width="2"/>
+  <!-- AD0 → GND rail -->
+  <line x1="520" y1="270" x2="505" y2="270" stroke="#222" stroke-width="2"/>
+  <circle cx="505" cy="270" r="3" fill="#222"/>
+
+  <!-- ══════════════════════════════════════════════
+       I2C Pull-up resistors (10kΩ each)
+  ══════════════════════════════════════════════ -->
+  <!-- SDA pull-up -->
+  <!-- wire from ESP GPIO8 right -->
+  <line x1="260" y1="220" x2="380" y2="220" stroke="#2a7" stroke-width="2"/>
+  <!-- resistor box -->
+  <rect x="380" y="212" width="36" height="16" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="398" y="208" text-anchor="middle" font-size="9">10kΩ</text>
+  <!-- wire right of resistor to SDA junction -->
+  <line x1="416" y1="220" x2="520" y2="220" stroke="#2a7" stroke-width="2"/>
+  <!-- SDA resistor top to 3V3 -->
+  <line x1="398" y1="212" x2="398" y2="55" stroke="#c00" stroke-width="1.5"/>
+  <!-- junction dot -->
+  <circle cx="416" cy="220" r="3" fill="#2a7"/>
+  <line x1="416" y1="220" x2="416" y2="210" stroke="#2a7" stroke-width="1"/>
+  <text x="285" y="216" font-size="9" fill="#2a7">GREEN</text>
+
+  <!-- SCL pull-up -->
+  <line x1="260" y1="255" x2="380" y2="255" stroke="#36f" stroke-width="2"/>
+  <rect x="380" y="247" width="36" height="16" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="398" y="243" text-anchor="middle" font-size="9">10kΩ</text>
+  <line x1="416" y1="255" x2="520" y2="255" stroke="#36f" stroke-width="2"/>
+  <!-- SCL resistor top to 3V3 -->
+  <line x1="410" y1="247" x2="410" y2="55" stroke="#c00" stroke-width="1.5"/>
+  <circle cx="416" cy="255" r="3" fill="#36f"/>
+  <text x="285" y="251" font-size="9" fill="#36f">BLUE</text>
+
+  <!-- ══════════════════════════════════════════════
+       LED circuit (GPIO10 → 220Ω → LED → GND)
+  ══════════════════════════════════════════════ -->
+  <!-- wire from GPIO10 -->
+  <line x1="260" y1="310" x2="340" y2="310" stroke="#e60" stroke-width="2"/>
+  <text x="270" y="306" font-size="9" fill="#e60">ORANGE</text>
+  <!-- 220Ω resistor -->
+  <rect x="340" y="302" width="36" height="16" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="358" y="298" text-anchor="middle" font-size="9">220Ω</text>
+  <!-- wire to LED anode -->
+  <line x1="376" y1="310" x2="420" y2="310" stroke="#e60" stroke-width="2"/>
+  <!-- LED symbol -->
+  <polygon points="420,302 420,318 438,310" fill="#ff4444" stroke="#333" stroke-width="1.5"/>
+  <line x1="438" y1="302" x2="438" y2="318" stroke="#333" stroke-width="2"/>
+  <!-- LED emission lines -->
+  <line x1="442" y1="302" x2="450" y2="295" stroke="#f88" stroke-width="1"/>
+  <line x1="445" y1="307" x2="455" y2="300" stroke="#f88" stroke-width="1"/>
+  <text x="425" y="296" font-size="9">LED+</text>
+  <text x="440" y="325" font-size="9">LED−</text>
+  <!-- LED cathode → GND rail -->
+  <line x1="438" y1="318" x2="438" y2="660" stroke="#222" stroke-width="2"/>
+  <text x="443" y="340" font-size="9" fill="#222">BLACK</text>
+
+  <!-- ══════════════════════════════════════════════
+       MyoWare 2.0  (bottom right)
+  ══════════════════════════════════════════════ -->
+  <rect x="560" y="380" width="165" height="220" rx="6" fill="#ede7f6" stroke="#333" stroke-width="2"/>
+  <text x="642" y="400" text-anchor="middle" font-weight="bold" font-size="13">MyoWare 2.0</text>
+  <text x="642" y="414" text-anchor="middle" font-size="9" fill="#555">Surface EMG</text>
+
+  <!-- MyoWare left pins -->
+  <line x1="560" y1="440" x2="520" y2="440" stroke="#c00" stroke-width="2"/>
+  <text x="562" y="437" font-size="10">VIN</text>
+  <line x1="560" y1="470" x2="520" y2="470" stroke="#222" stroke-width="2"/>
+  <text x="562" y="467" font-size="10">GND</text>
+  <line x1="560" y1="505" x2="520" y2="505" stroke="#cc0" stroke-width="2"/>
+  <text x="562" y="502" font-size="10">ENV</text>
+  <line x1="560" y1="535" x2="520" y2="535" stroke="#aaa" stroke-width="2"/>
+  <text x="562" y="532" font-size="10">RAW</text>
+  <!-- REF electrode (dashed) -->
+  <line x1="725" y1="565" x2="780" y2="565" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="562" y="567" font-size="10">REF</text>
+  <line x1="560" y1="563" x2="600" y2="563" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="785" y="569" font-size="9" fill="#666">acromion electrode</text>
+
+  <!-- MyoWare VIN → 3V3 rail -->
+  <line x1="520" y1="440" x2="500" y2="440" stroke="#c00" stroke-width="2"/>
+  <line x1="500" y1="55"  x2="500" y2="440" stroke="#c00" stroke-width="2"/>
+  <!-- MyoWare GND → GND rail -->
+  <line x1="520" y1="470" x2="495" y2="470" stroke="#222" stroke-width="2"/>
+  <line x1="495" y1="470" x2="495" y2="660" stroke="#222" stroke-width="2"/>
+
+  <!-- ENV → GPIO4 -->
+  <line x1="520" y1="505" x2="475" y2="505" stroke="#cc0" stroke-width="2"/>
+  <line x1="475" y1="380" x2="475" y2="505" stroke="#cc0" stroke-width="2"/>
+  <line x1="260" y1="380" x2="475" y2="380" stroke="#cc0" stroke-width="2"/>
+  <text x="270" y="376" font-size="9" fill="#997700">YELLOW</text>
+
+  <!-- RAW → GPIO5 -->
+  <line x1="520" y1="535" x2="480" y2="535" stroke="#aaa" stroke-width="2"/>
+  <line x1="480" y1="415" x2="480" y2="535" stroke="#aaa" stroke-width="2"/>
+  <line x1="260" y1="415" x2="480" y2="415" stroke="#aaa" stroke-width="2"/>
+  <text x="270" y="411" font-size="9" fill="#888">WHITE</text>
+
+  <!-- ══════════════════════════════════════════════
+       LEGEND
+  ══════════════════════════════════════════════ -->
+  <rect x="730" y="80" width="240" height="220" rx="4" fill="#fafafa" stroke="#bbb" stroke-width="1"/>
+  <text x="850" y="98" text-anchor="middle" font-weight="bold" font-size="11">Legend</text>
+
+  <line x1="745" y1="115" x2="785" y2="115" stroke="#c00" stroke-width="2.5"/>
+  <text x="792" y="119" font-size="10">3.3V  (RED wire)</text>
+
+  <line x1="745" y1="135" x2="785" y2="135" stroke="#222" stroke-width="2.5"/>
+  <text x="792" y="139" font-size="10">GND  (BLACK wire)</text>
+
+  <line x1="745" y1="155" x2="785" y2="155" stroke="#2a7" stroke-width="2"/>
+  <text x="792" y="159" font-size="10">SDA  (GREEN wire)</text>
+
+  <line x1="745" y1="175" x2="785" y2="175" stroke="#36f" stroke-width="2"/>
+  <text x="792" y="179" font-size="10">SCL  (BLUE wire)</text>
+
+  <line x1="745" y1="195" x2="785" y2="195" stroke="#e60" stroke-width="2"/>
+  <text x="792" y="199" font-size="10">GPIO10  (ORANGE wire)</text>
+
+  <line x1="745" y1="215" x2="785" y2="215" stroke="#cc0" stroke-width="2"/>
+  <text x="792" y="219" font-size="10">ENV  (YELLOW wire)</text>
+
+  <line x1="745" y1="235" x2="785" y2="235" stroke="#aaa" stroke-width="2"/>
+  <text x="792" y="239" font-size="10">RAW  (WHITE wire)</text>
+
+  <line x1="745" y1="255" x2="785" y2="255" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="792" y="259" font-size="10">Off-board electrode</text>
+
+  <rect x="745" y="268" width="26" height="12" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="792" y="279" font-size="10">Resistor</text>
+
+  <polygon points="745,295 745,283 759,289" fill="#ff4444" stroke="#333" stroke-width="1.5"/>
+  <line x1="759" y1="283" x2="759" y2="295" stroke="#333" stroke-width="2"/>
+  <text x="792" y="293" font-size="10">LED</text>
+
+</svg>
